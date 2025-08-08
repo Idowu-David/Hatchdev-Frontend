@@ -1,0 +1,13 @@
+REACT LIFE CYCLE
+- Mounting
+- Updating
+- Unmounting
+
+Hooks grants access to part of the cycle
+Hooks are functions
+
+Libraries give flexibility
+Frameworks need certain things are are less flexible
+
+Components are building blocks for UI and logic in react
+npxjs.com - to find packages
