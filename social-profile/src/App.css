@@ -1,0 +1,63 @@
+.card-container {
+  width: 265px;
+  background-color: hsl(0, 0%, 12%);
+  height: 450px;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+.profile-pic {
+  width: 70px;
+  border-radius: 50%;
+  margin-top: 25px;
+}
+
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-name {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 1px;
+  font-weight: 700;
+  padding-bottom: 6px;
+}
+
+.city {
+  color: hsl(75, 94%, 57%);
+  font-size: 9px;
+  margin-top: 1px;
+  font-size: 8.5px;
+  font-weight: 800;
+}
+
+.spec {
+  color: white;
+  font-size: 10px;
+  padding-bottom: 10px;
+  font-weight: 300;
+}
+
+.social-media {
+  display: grid;
+  grid-template-rows: repeat(5, 35px);
+  gap: 10px;
+  width: 200px;
+}
+
+.social-media a {
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+}
