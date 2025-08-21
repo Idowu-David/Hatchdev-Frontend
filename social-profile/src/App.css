@@ -29,7 +29,7 @@
 }
 
 .city {
-  color: hsl(75, 94%, 57%);
+  color: hwb(92 56% 2%);
   font-size: 9px;
   margin-top: 1px;
   font-size: 8.5px;
@@ -40,7 +40,7 @@
   color: white;
   font-size: 10px;
   padding-bottom: 10px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .social-media {
@@ -60,4 +60,9 @@
   font-weight: 600;
   text-align: center;
   padding: 10px;
+}
+
+.social-media a:hover {
+  background-color: hwb(92 56% 2%);
+  color: black;
 }

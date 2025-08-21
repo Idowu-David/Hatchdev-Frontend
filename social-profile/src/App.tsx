@@ -5,16 +5,22 @@ function App() {
     <>
       <div className="card-container">
         <div className="profile-pic-container">
-          <img src="avatar-jessica.jpeg" className="profile-pic" />
-          <p className="profile-name">Jessica Randall</p>
-          <p className="city">London, United Kingdom</p>
-          <p className="spec">"Front-end developer and avid reader"</p>
+          <img src="pic.jpg" className="profile-pic" />
+          <p className="profile-name">David Idowu</p>
+          <p className="city">University Of Lagos</p>
+          <p className="spec">FULLSTACK WEB DEVELOPER</p>
           <div className="social-media">
-            <a href="#">Github</a>
-            <a href="#">Frontend Mentor</a>
+            <a href="https://github.com/Idowu-David" target="_blank">
+              Github
+            </a>
+            <a href="https://instagram.com/idowudavido" target="_blank">
+              Instagram
+            </a>
+            <a href="https:/x.com/IdowuDavid08" target="_blank">
+              Twitter
+            </a>
             <a href="#">Linkedln</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+            <a href="#">Frontend Mentor</a>
           </div>
         </div>
       </div>
