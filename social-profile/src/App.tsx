@@ -5,7 +5,7 @@ function App() {
     <>
       <div className="card-container">
         <div className="profile-pic-container">
-          <img src="pic.jpg" className="profile-pic" />
+          <img src="pic.jpg" alt="profile-picture" className="profile-pic" />
           <p className="profile-name">David Idowu</p>
           <p className="city">University Of Lagos</p>
           <p className="spec">FULLSTACK WEB DEVELOPER</p>
@@ -19,7 +19,7 @@ function App() {
             <a href="https:/x.com/IdowuDavid08" target="_blank">
               Twitter
             </a>
-            <a href="#">Linkedln</a>
+            <a href="#">Linkedin</a>
             <a href="#">Frontend Mentor</a>
           </div>
         </div>
