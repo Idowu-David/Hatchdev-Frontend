@@ -1,0 +1,58 @@
+.todo-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 500px;
+  padding-top: 20px;
+  padding-bottom: 200px;
+	margin-top: 20px;
+}
+
+.todo-input {
+}
+
+.todo-list {
+  line-height: 25px;
+}
+
+.todo-input input {
+  width: 300px;
+  margin-right: 5px;
+  height: 25px;
+  border-radius: 1px;
+  border: 1px red solid;
+}
+
+.todo-input input::placeholder {
+  font-family: "Consolas";
+  padding-left: 10px;
+}
+
+.delete-button {
+  background-color: purple;
+  color: white;
+  margin-left: 10px;
+	padding: 5px;
+	border: none
+}
+
+.todo-item-container {
+  display: flex;
+  align-items: center;
+	margin: 0 auto;
+	width: 400px;
+}
+
+.todo-item-text {
+  flex: 1;
+  word-wrap: break-word;
+  white-space: normal;
+	border-bottom: 1px solid red;
+	line-height: 38px;
+	min-width: 0;
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+

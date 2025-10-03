@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import type { Task } from "./types";
+import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -21,13 +22,24 @@ function App() {
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
-  };
+	};
+	
+	const deleteTask = (id: number) => {
+		setTasks(prev => prev.filter(task => task.id !== id))
+	}
 
   return (
-    <div>
-      <h1>My ToDo List</h1>
-      <TodoInput onAddTask={addTask} />
-      <TodoList tasks={tasks} onToggle={toggleTask} />
+    <div className="todo-app">
+      <header className="app-header">
+        <h1>TODO LIST</h1>
+      </header>
+      <div className="todo-input">
+        <TodoInput onAddTask={addTask} />
+      </div>
+
+      <div className="todo-list">
+        <TodoList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+      </div>
     </div>
   );
 }
