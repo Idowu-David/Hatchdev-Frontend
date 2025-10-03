@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TodoFilter from "./TodoFilters";
 import "../App.css";
 
 interface TodoInputProps {
@@ -25,7 +24,6 @@ const TodoInput: React.FC<TodoInputProps> = ({ onAddTask }) => {
         placeholder="Create a new task..."
       />
       <button type="submit">Add</button>
-      <TodoFilter />
     </form>
   );
 };

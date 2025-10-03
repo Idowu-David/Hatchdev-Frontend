@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [filter, setFilter] = useState<"all" | "undone" | "completed">("all");
 
   const addTask = (text: string) => {
     const newTask: Task = {
@@ -22,11 +23,19 @@ function App() {
         task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
-	};
-	
-	const deleteTask = (id: number) => {
-		setTasks(prev => prev.filter(task => task.id !== id))
-	}
+  };
+
+  const deleteTask = (id: number) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "completed") return task.completed;
+    if (filter === "undone") return !task.completed;
+    return true;
+  });
+
+  console.log(filteredTasks);
 
   return (
     <div className="todo-app">
@@ -35,10 +44,24 @@ function App() {
       </header>
       <div className="todo-input">
         <TodoInput onAddTask={addTask} />
+        <select
+          value={filter}
+          onChange={(e) =>
+            setFilter(e.target.value as "all" | "completed" | "undone")
+          }
+        >
+          <option value="all">ALL</option>
+          <option value="undone">UNDONE</option>
+          <option value="completed">COMPLETED</option>
+        </select>
       </div>
 
       <div className="todo-list">
-        <TodoList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+        <TodoList
+          tasks={filteredTasks}
+          onToggle={toggleTask}
+          onDelete={deleteTask}
+        />
       </div>
     </div>
   );
