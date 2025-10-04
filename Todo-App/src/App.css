@@ -9,10 +9,13 @@ header {
   justify-content: center;
   flex-direction: column;
   background-color: white;
-  width: 500px;
   padding-top: 20px;
-  padding-bottom: 200px;
   margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  margin: 0 auto;
+  padding-bottom: 130px;
 }
 
 .todo-input {
@@ -95,4 +98,14 @@ header {
 .todo-item-text span {
   font-weight: bold;
   padding-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .todo-app {
+    padding: 0.8rem;
+  }
+
+	.todo-input input {
+		color: red;
+	}
 }
