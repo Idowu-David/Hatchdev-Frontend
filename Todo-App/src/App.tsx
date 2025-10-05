@@ -7,6 +7,9 @@ import "./App.css";
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | "undone" | "completed">("all");
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   const addTask = (text: string) => {
     const newTask: Task = {
@@ -38,7 +41,9 @@ function App() {
   console.log(filteredTasks);
 
   return (
-    <div className="todo-app">
+    <div className={`todo-app ${darkMode ? "dark" : "light"}`}>
+      <button className="theme-toggle" onClick={toggleTheme}>SWITCH</button>
+
       <header className="app-header">
         <h1>TODO LIST</h1>
       </header>

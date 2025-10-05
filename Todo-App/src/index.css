@@ -6,14 +6,23 @@
 }
 
 body {
-	background-color: #a0c8ff;
 	background-color: lab(65.8% 10.53 -37.56);
-	background-color: red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
-	width: 100%;
-	min-height: 100vh;
-	overflow-x: hidden;
+	width: 100vw;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+	font-family: "Roboto";
+}
+
+body {
+	background-color: lab(65.8% 10.53 -37.56);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
 }

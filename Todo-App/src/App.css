@@ -12,8 +12,42 @@ header {
   padding-top: 20px;
   padding-bottom: 200px;
   margin-top: 50px;
-  min-width: 530px;
   border-radius: 50px 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.todo-app.light {
+  background-color: white;
+  color: #222;
+}
+
+.todo-app.dark {
+  background-color: black;
+  color: white;
+}
+
+.todo-app.dark .theme-toggle {
+  background-color: white;
+  color: black;
+  border: 2px solid red;
+  padding: 2px;
+}
+
+.todo-app.dark input,
+.todo-app.dark select {
+  background-color: #222;
+  color: white;
+  border-color: red;
+}
+
+.todo-app.dark .todo-input input::placeholder {
+  color: white;
+}
+
+.todo-app.dark button {
+  background-color: black;
+  color: white;
+  border: red 2px solid;
 }
 
 .todo-input {
@@ -61,6 +95,10 @@ header {
   border-radius: 4px;
 }
 
+.todo-input select {
+  border: 2px solid;
+}
+
 .delete-button {
   background-color: black;
   color: white;
@@ -101,11 +139,11 @@ header {
 @media (max-width: 600px) {
   .todo-app {
     width: 90%;
-		max-width: 350px;
-		font-size: smaller;
+    max-width: 350px;
+    font-size: smaller;
   }
   .todo-input input {
-    width: 300px;
+    width: 100%;
     font-size: 14px;
   }
   .todo-input button {
@@ -115,7 +153,7 @@ header {
     width: 80px;
     font-size: smaller;
   }
-	.todo-item-text {
-		width: 230px;
-	}
+  .todo-item-text {
+    width: 100%;
+  }
 }
