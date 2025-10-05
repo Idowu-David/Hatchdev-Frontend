@@ -100,21 +100,21 @@ header {
 
 @media (max-width: 600px) {
   .todo-app {
-    min-width: 250px;
+    min-width: 350px;
     font-size: smaller;
   }
   .todo-input input {
-    width: 200px;
+    width: 300px;
     font-size: 14px;
   }
   .todo-input button {
     font-size: 14px;
   }
   .todo-input select {
-    width: 75px;
+    width: 80px;
     font-size: smaller;
   }
 	.todo-item-text {
-		width: 210px;
+		width: 230px;
 	}
 }
