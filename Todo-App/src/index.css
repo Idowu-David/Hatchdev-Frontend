@@ -6,8 +6,7 @@
 }
 
 body {
-	/* background-color: lab(61.21% 13.08 -42.6); */
-	background-color: red;
+	background-color: lab(61.21% 13.08 -42.6);
 	display: flex;
 	justify-content: center;
 	align-items: center;

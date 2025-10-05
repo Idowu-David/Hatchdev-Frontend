@@ -10,17 +10,10 @@ header {
   flex-direction: column;
   background-color: white;
   padding-top: 20px;
+  padding-bottom: 200px;
   margin-top: 20px;
-<<<<<<< HEAD
   min-width: 530px;
   border-radius: 50px 0;
-=======
-  width: 100%;
-  max-width: 500px;
-  padding: 1rem;
-  margin: 0 auto;
-  padding-bottom: 130px;
->>>>>>> cb300cb2460fa393a47c341485ebb5e1b7c49b27
 }
 
 .todo-input {
