@@ -8,6 +8,7 @@
 body {
 	background-color: #a0c8ff;
 	background-color: lab(65.8% 10.53 -37.56);
+	background-color: red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
