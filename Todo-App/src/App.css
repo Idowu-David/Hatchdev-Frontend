@@ -10,10 +10,7 @@ header {
   flex-direction: column;
   background-color: white;
   padding-top: 20px;
-  padding-bottom: 200px;
   margin-top: 20px;
-  min-width: 530px;
-  border-radius: 50px 0;
 }
 
 .todo-input {
@@ -96,25 +93,4 @@ header {
 .todo-item-text span {
   font-weight: bold;
   padding-left: 10px;
-}
-
-@media (max-width: 600px) {
-  .todo-app {
-    min-width: 200px;
-    font-size: smaller;
-  }
-  .todo-input input {
-    width: 150px;
-    font-size: 14px;
-  }
-  .todo-input button {
-    font-size: 14px;
-  }
-  .todo-input select {
-    width: 75px;
-    font-size: smaller;
-  }
-	.todo-item-text {
-		width: 210px;
-	}
 }
