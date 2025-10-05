@@ -6,10 +6,9 @@
 }
 
 body {
-	background-color: lab(61.21% 13.08 -42.6);
+	background-color: lab(65.8% 10.53 -37.56);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	min-height: 100vh;
 }
