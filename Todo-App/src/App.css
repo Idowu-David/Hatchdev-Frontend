@@ -100,8 +100,9 @@ header {
 
 @media (max-width: 600px) {
   .todo-app {
-    min-width: 350px;
-    font-size: smaller;
+    width: 90%;
+		max-width: 350px;
+		font-size: smaller;
   }
   .todo-input input {
     width: 300px;
