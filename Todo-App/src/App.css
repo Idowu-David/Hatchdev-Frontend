@@ -149,19 +149,20 @@ header {
   }
 
   .todo-input input {
-    width: 16rem;
-    font-size: 14px;
+    width: 13.5rem;
+    font-size: 17px;
   }
   .todo-input button {
-    font-size: 14px;
+    font-size: 17px;
   }
   .todo-input select {
 		flex: 1;
   }
   .todo-item-text {
     width: 280px;
-    line-height: 22px;
+    line-height: 25px;
 		padding: 7px 0;
+		font-size: 16px;
 
   }
 }
