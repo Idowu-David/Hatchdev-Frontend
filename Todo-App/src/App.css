@@ -120,7 +120,6 @@ header {
 }
 
 .todo-item-text {
-  flex: 1;
   word-wrap: break-word;
   white-space: normal;
   border-bottom: 1.5px solid #ad48ff;
@@ -128,8 +127,9 @@ header {
   overflow-wrap: break-word;
   padding: 7px 0;
   font-size: 13px;
-  width: 380px;
-  min-width: 75%;
+  flex: 1;
+	width: 340px;
+	min-width: 75%;
 }
 
 .todo-item-text.dark {
@@ -143,10 +143,12 @@ header {
 
 @media (max-width: 600px) {
   .todo-app {
-    width: 90%;
-    max-width: 350px;
-    font-size: smaller;
+    width: 100%;
+    max-width: 370px;
   }
+	.todo-input {
+
+	}
   .todo-input input {
     width: 100%;
     font-size: 14px;
@@ -156,9 +158,8 @@ header {
   }
   .todo-input select {
     width: 80px;
-    font-size: smaller;
   }
   .todo-item-text {
-    width: 100%;
+    width: 220px;
   }
 }
