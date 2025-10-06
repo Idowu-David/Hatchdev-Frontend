@@ -12,8 +12,10 @@ header {
   padding-top: 20px;
   padding-bottom: 200px;
   margin-top: 50px;
-  border-radius: 50px 0;
+  border-radius: 50px 80px;
   transition: background-color 0.3s, color 0.3s;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .todo-app.light {
@@ -30,7 +32,6 @@ header {
   background-color: white;
   color: black;
   border: 2px solid red;
-  padding: 2px;
 }
 
 .todo-app.dark input,
@@ -45,7 +46,7 @@ header {
 }
 
 .todo-app.dark button {
-  background-color: black;
+  background-color: #222;
   color: white;
   border: red 2px solid;
 }
@@ -129,6 +130,10 @@ header {
   font-size: 13px;
   width: 380px;
   min-width: 75%;
+}
+
+.todo-item-text.dark {
+	border-bottom: 1.5px solid red;
 }
 
 .todo-item-text span {

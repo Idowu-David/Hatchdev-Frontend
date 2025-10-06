@@ -65,7 +65,8 @@ function App() {
         <TodoList
           tasks={filteredTasks}
           onToggle={toggleTask}
-          onDelete={deleteTask}
+					onDelete={deleteTask}
+					darkMode={darkMode}
         />
       </div>
     </div>

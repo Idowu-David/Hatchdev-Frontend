@@ -5,12 +5,13 @@ interface TodoItemProps {
   task: Task;
 	onToggle: (id: number) => void;
 	onDelete: (id: number) => void;
+	darkMode: boolean
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ task, onToggle, onDelete }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ task, onToggle, onDelete, darkMode }) => {
   return (
     <div className="todo-item-container">
-      <div className="todo-item-text">
+			<div className={`todo-item-text ${darkMode ? "dark" : "light"}`}>
         <li style={{ listStyleType: "none" }}>
           <input
             type="checkbox"

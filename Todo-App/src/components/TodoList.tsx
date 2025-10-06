@@ -5,10 +5,11 @@ import TodoItem from "./TodoItem";
 interface TodoListProps {
   tasks: Task[];
   onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+	onDelete: (id: number) => void;
+	darkMode: boolean
 }
 
-const TodoList: React.FC<TodoListProps> = ({ tasks, onToggle, onDelete }) => {
+const TodoList: React.FC<TodoListProps> = ({ tasks, onToggle, onDelete, darkMode }) => {
   return (
     <ul>
       {tasks.map((task) => (
@@ -16,7 +17,8 @@ const TodoList: React.FC<TodoListProps> = ({ tasks, onToggle, onDelete }) => {
           key={task.id}
           task={task}
           onToggle={onToggle}
-          onDelete={onDelete}
+					onDelete={onDelete}
+					darkMode={darkMode}
         />
       ))}
     </ul>
