@@ -3,6 +3,7 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import type { Task } from "./types";
 import "./App.css";
+import { BsMoonFill, BsSunFill } from "react-icons/bs";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -42,7 +43,11 @@ function App() {
 
   return (
     <div className={`todo-app ${darkMode ? "dark" : "light"}`}>
-      <button className="theme-toggle" onClick={toggleTheme}>SWITCH</button>
+      <div className="theme-toggle">
+        <button onClick={toggleTheme}>
+          {darkMode ? <BsSunFill /> : <BsMoonFill />}
+        </button>
+      </div>
 
       <header className="app-header">
         <h1>TODO LIST</h1>
@@ -65,8 +70,8 @@ function App() {
         <TodoList
           tasks={filteredTasks}
           onToggle={toggleTask}
-					onDelete={deleteTask}
-					darkMode={darkMode}
+          onDelete={deleteTask}
+          darkMode={darkMode}
         />
       </div>
     </div>
