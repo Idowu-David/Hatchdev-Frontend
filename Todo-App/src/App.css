@@ -53,7 +53,7 @@ header {
 
 .todo-input {
   display: flex;
-  height: 33px;
+  height: 45px;
   gap: 0.5rem;
   margin: 0 9px;
   margin-bottom: 10px;
@@ -83,6 +83,7 @@ header {
   padding-left: 5px;
   margin-left: -9px;
   border-radius: 4px;
+	width: 70px;
 }
 
 .todo-input select:focus {
@@ -148,7 +149,7 @@ header {
   }
 
   .todo-input input {
-    width: 100%;
+    width: 16rem;
     font-size: 14px;
   }
   .todo-input button {
