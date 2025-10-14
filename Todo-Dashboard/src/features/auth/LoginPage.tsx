@@ -24,9 +24,8 @@ const LoginPage = () => {
       dispatch(loginSuccess(mockUserData));
       navigate("/");
     } else {
-			setError("Wrong password! Please try again.");
-
-		}
+      setError("Wrong password! Please try again.");
+    }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -37,33 +36,37 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1 className="sign-in">Sign In</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="login-input">
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              id="user-password"
-              placeholder="Enter password..."
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <label className="remember-me">
-            <input type="checkbox" />
-            Remember Me
-          </label>
-          <button type="submit" onClick={handleLogin}>
-            Log In
-          </button>
-        </form>
+        <div className="login-card-content">
+					<h1 className="sign-in">Sign In</h1>
+					<form onSubmit={handleSubmit}>
+						<div className="login-input">
+							<input
+								type="text"
+								id="username"
+								placeholder="Enter Username"
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+							/>
+							<input
+								type="password"
+								id="user-password"
+								placeholder="Enter password..."
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</div>
+						<label className="remember-me">
+							<input type="checkbox" />
+							Remember Me
+						</label>
+						<button className="login-button" type="submit" onClick={handleLogin}>
+							Login
+						</button>
+					</form>
+				</div>
+				{/* <div className="image-container">
+					<img src="./login-man.png"/>
+				</div> */}
       </div>
     </div>
   );
