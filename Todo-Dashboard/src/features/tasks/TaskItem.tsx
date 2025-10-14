@@ -16,6 +16,11 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 		dispatch(updateTaskStatus({id: task.id, status: newStatus}))
 	};
 
+	const handleDeleteTask = () => {
+		if (window.confirm(`Are you sure you want to delete "${task.title}"`)) {
+			dispatch(deleteTask(task.id))
+		}
+	}
 
   return (
     <div>
@@ -28,7 +33,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 			<button onClick={handleStatusToggle}>
 				{task.status === 'completed' ? 'Mark Incomplete' : 'Mark Complete'}
 			</button>
-			<button onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
+			<button onClick={handleDeleteTask}>Delete</button>
     </div>
   );
 };

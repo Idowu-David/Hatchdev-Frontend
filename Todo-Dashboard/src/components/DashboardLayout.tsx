@@ -21,14 +21,24 @@ const DashboardLayout = () => {
         <h2>To Do</h2>
         <button onClick={() => setIsModalOpen(true)}>+ Add Task</button>
       </div>
+
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <AddTaskForm onFormSubmit={() => setIsModalOpen(false)} />
       </Modal>
+
       <div>
-        <TaskList tasks={activeTasks} title="To-Do" emptyMessage="No active tasks. Greate job!" />
+        <TaskList
+          tasks={activeTasks}
+          title="To-Do"
+          emptyMessage="No active tasks. Greate job!"
+        />
       </div>
       <div>
-        <TaskList tasks={completedTasks} title="Completed" emptyMessage="No tasks completed yet."/>
+        <TaskList
+          tasks={completedTasks}
+          title="Completed"
+          emptyMessage="No tasks completed yet."
+        />
       </div>
     </div>
   );
