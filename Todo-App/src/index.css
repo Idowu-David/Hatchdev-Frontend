@@ -12,17 +12,3 @@ body {
 	align-items: center;
 	width: 100vw;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-	font-family: "Roboto";
-}
-
-body {
-	background-color: lab(65.8% 10.53 -37.56);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-}
