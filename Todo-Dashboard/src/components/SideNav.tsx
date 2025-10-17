@@ -1,5 +1,3 @@
-import React from "react";
-
 const SideNav = () => {
   const navLinks = [
     { text: "Dashboard", href: "#" },
@@ -11,12 +9,13 @@ const SideNav = () => {
   ];
 
   const navStyles =
-    "hover:bg-[white] hover:text-[#ff6767] py-2 px-1 hover:rounded-[8px] transition-all";
+    "hover:bg-[white] hover:text-[#ff6767] py-2 px-1 hover:rounded-[8px] transition-all list-none";
 
   return (
-    <div className="bg-red-500 text-white p-4 absolute w-full top-10 bottom-0">
+    <aside className="hidden">
+      {/* "bg-red-500 text-white p-4 absolute w-full top-10 bottom-0 */}
       <div className="flex flex-col justify-center items-center px-3">
-        <p className="text-[12px] font-semibold">David Idowu</p>
+        <p className="text-xs font-semibold">David Idowu</p>
         <p className="text-[10px]">idowudavidodun@gmail.com</p>
       </div>
       <div className="flex flex-col mt-5 text-[12px] px-1 font-semibold">
@@ -26,7 +25,7 @@ const SideNav = () => {
           </li>
         ))}
       </div>
-    </div>
+    </aside>
   );
 };
 
