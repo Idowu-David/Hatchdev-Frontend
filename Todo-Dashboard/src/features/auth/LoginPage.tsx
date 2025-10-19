@@ -25,6 +25,7 @@ const LoginPage = () => {
       navigate("/");
     } else {
       setError("Wrong password! Please try again.");
+      alert(error);
     }
   };
 

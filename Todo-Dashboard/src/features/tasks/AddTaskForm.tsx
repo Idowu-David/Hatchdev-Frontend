@@ -8,7 +8,7 @@ interface AddTaskFormProps {
   onFormSubmit?: () => void;
 }
 
-const AddTaskForm = ({ onFormSubmit }) => {
+const AddTaskForm:React.FC<AddTaskFormProps> = ({ onFormSubmit }) => {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState<Task["priority"]>(undefined);
   const [description, setDescription] = useState("");
