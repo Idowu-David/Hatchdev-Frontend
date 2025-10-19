@@ -17,10 +17,15 @@ const DashboardLayout: React.FC = () => {
 
   const completedTasks = tasks.filter((task) => task.status === "completed");
 
-  const openSideNav = () => {
-    console.log("Button Clicked");
-    setisSideBarOpen(!isSideBarOpen);
-  };
+  const noCompletedTasks = completedTasks.length;
+  const noInProgressTasks = tasks.filter(
+    (task) => task.status === "inProgress"
+  ).length;
+  const noNotStartedTasks = tasks.filter(
+    (task) => task.status === "notStarted"
+  ).length;
+
+  const totalTasks = noCompletedTasks + noInProgressTasks + noNotStartedTasks;
 
   return (
     <div className="min-h-screen">
@@ -29,7 +34,7 @@ const DashboardLayout: React.FC = () => {
         {/* "grid grid-rows-[50px_1fr] w-3/4 h-[90%] rounded-[25px] overflow-hidden bg-gray-100" */}
         <header
           className="sticky top-0 z-20
-				bg-red-100 shadow-md flex items-center justify-between p-3 h-13 mb-3"
+				bg-red-200 shadow-md flex items-center justify-between p-3 h-13 mb-3"
         >
           {/* flex items-center justify-between bg-[#e8dfdf] shadow-md px-4 z-10 */}
           <div className="font-bold text-3xl">
@@ -50,7 +55,7 @@ const DashboardLayout: React.FC = () => {
             </p>
           </div>
         </header>
-        <button className="absolute left-4" onClick={() => openSideNav}>
+        <button className="absolute left-4 md:hidden" onClick={() => setisSideBarOpen(!isSideBarOpen)}>
           <svg
             className="w-6 h-6"
             fill="none"
@@ -67,11 +72,24 @@ const DashboardLayout: React.FC = () => {
         <h2 className="text-2xl font-bold text-center mb-4">
           Welcome back, David👋
         </h2>
-        <div className="mx-3 border-2 border-[#5c50504d]">
-          <aside className="relative">{isSideBarOpen && <SideNav />}</aside>
+        <div className="mx-3 shadow-lg rounded-lg">
+					<aside>
+						<SideNav isSideNavOpen={isSideBarOpen} onClose={() => setisSideBarOpen(false)} />
+						{isSideBarOpen && (
+							<div
+								onClick={() => setisSideBarOpen(false)}
+								className="fixed inset-0 bg-black opacity-50 z-20 md:hidden"
+							></div>
+						)}
+					</aside>
 
           <main className="p-4 pt-0 relative mt-6">
-            <TaskStatus/>
+            <TaskStatus
+              completedTasks={noCompletedTasks}
+              inProgressTasks={noInProgressTasks}
+              notStartedTasks={noNotStartedTasks}
+              total={totalTasks}
+            />
             <button
               className="font-semibold absolute right-4 mt-1"
               onClick={() => setIsModalOpen(true)}

@@ -1,58 +1,84 @@
-// src/features/dashboard/TaskStatus.tsx
-
 import React from "react";
 
-// A reusable prop type for each circle
 interface StatusCircleProps {
   percentage: number;
   label: string;
-  colorClass: string; // e.g., "text-green-500"
-  bgColorClass: string; // e.g., "bg-green-100"
+  color: string; // e.g., "#22c55e"
+  textColorClass: string; // e.g., "text-green-500"
 }
 
-// A reusable component for one circle card
 const StatusCircle: React.FC<StatusCircleProps> = ({
   percentage,
   label,
-  colorClass,
-  bgColorClass,
+  color,
+  textColorClass,
 }) => {
+  // We create the gradient style dynamically
+  const gradientStyle = {
+    background: `conic-gradient(${color} ${percentage}%, #e5e7eb 0)`,
+  };
+
   return (
-    // The white card for each status
-		<div className="flex items-center justify-center">
-			<div className={`${bgColorClass} w-20 h-20 rounded-full flex items-center justify-center`}>
-				<div className="bg-white w-14 h-14 rounded-full flex justify-center items-center">
-					<span className="text-xl font-bold">{percentage}%</span>
-				</div>
-			</div>
-	 </div>
+    <div className="p-4 rounded-lg flex relative items-center shadow-[0_0_5px_rgba(0,0,0,0.3)]">
+      <div
+        className="w-16 h-16 rounded-full flex items-center justify-center mb-3 mx-2"
+        style={gradientStyle}
+      >
+        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+          <span className={`text-xl font-bold ${textColorClass}`}>
+            {percentage}%
+          </span>
+        </div>
+      </div>
+
+      <div
+        className={`text-sm  absolute bottom-0 font-semibold w-full right-0 pl-4 pb-1`}
+      >
+        ● {label}
+      </div>
+    </div>
   );
 };
 
-// The main component that holds all three cards
-const TaskStatus = () => {
-  return (
-    <section className="mb-5 shadow-md pb-6 rounded-lg pt-4">
-      <h2 className="text-[15px] font-bold mb-3 pl-4">Task Status</h2>
+interface TaskStatusProps {
+  completedTasks: number;
+  inProgressTasks: number;
+  notStartedTasks: number;
+  total: number;
+}
 
+const TaskStatus: React.FC<TaskStatusProps> = ({
+  completedTasks,
+  inProgressTasks,
+  notStartedTasks,
+  total,
+}) => {
+  return (
+    <section className="mb-4 border-2 pb-6 rounded-xl">
+      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">Task Status</h2>
       <div className="flex justify-evenly">
         <StatusCircle
-          percentage={84}
+          percentage={
+            completedTasks ? Math.floor((completedTasks * 100) / total) : 0
+          }
           label="Completed"
-          colorClass="text-green-500"
-          bgColorClass="bg-green-100"
+          color="#22c55e"
+          textColorClass="text-green-500"
         />
         <StatusCircle
-          percentage={46}
+          percentage={
+            inProgressTasks ? Math.floor((inProgressTasks * 100) / total) : 0
+          }
           label="In Progress"
-          colorClass="text-blue-500"
-          bgColorClass="bg-blue-100"
+          color="#3b82f6"          textColorClass="text-blue-500"
         />
         <StatusCircle
-          percentage={13}
+          percentage={
+            notStartedTasks ? Math.floor((notStartedTasks * 100) / total) : 0
+          }
           label="Not Started"
-          colorClass="text-red-500"
-          bgColorClass="bg-red-100"
+          color="#ef4444"
+          textColorClass="text-red-500"
         />
       </div>
     </section>

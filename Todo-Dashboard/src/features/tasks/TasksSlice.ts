@@ -1,11 +1,13 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
+type TaskPriority = "low" | "moderate" | "high";
+
 export interface Task {
   title: string;
   description: string;
   id: string;
   status: "completed" | "inProgress" | "notStarted";
-  priority?: "low" | "moderate" | "high";
+  priority?: TaskPriority
   image?: string;
   creationDate?: string;
   dueDate?: string;

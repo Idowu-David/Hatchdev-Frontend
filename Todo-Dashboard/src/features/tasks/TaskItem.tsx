@@ -1,5 +1,6 @@
 import React from "react";
 import { type Task, updateTaskStatus, deleteTask } from "./TasksSlice";
+
 import { useAppDispatch } from "../../hooks";
 
 interface TaskItemProps {
@@ -18,33 +19,82 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
     if (window.confirm(`Are you sure you want to delete "${task.title}"`)) {
       dispatch(deleteTask(task.id));
     }
-	};
-	
-	const buttonStyle = "bg-red-300 p-1 rounded-md font-semibold hover:bg-[#ff6767] text-";
+  };
+
+  const buttonStyle = "p-1 rounded-md font-semibold border border-t-2 shadow-m";
+
+  const priorityMap = {
+    low: {
+      text: "Low",
+      color: "#73c1ea",
+    },
+    moderate: {
+      text: "Moderate",
+      color: "#86efac",
+    },
+    high: {
+      text: "High",
+      color: "#f97316",
+    },
+  };
+
+  const displayPriority = task.priority
+    ? priorityMap[task.priority]["text"]
+    : "N/A";
+  const colorPriority = task.priority
+    ? priorityMap[task.priority]["color"]
+    : "N/A";
+
+  const statusMap = {
+    completed: {
+      text: "Completed",
+      color: "#04a301",
+    },
+    notStarted: {
+      text: "Not Started",
+      color: "#f21e1d",
+    },
+    inProgress: {
+      text: "In Progress",
+      color: "#0224ff",
+    },
+  };
+
+  const displayStatus = statusMap[task.status]["text"];
+  const colorStatus = statusMap[task.status]["color"];
 
   return (
-    <div className="border border- my-3 px-4 pt-2 rounded-xl pb-2 shadow-xl">
-      <h3 className="font-bold pb-2">{task.title}</h3>
-      <p className="pb-2 text-[#4d4b4b]">{task.description}</p>
+    <div className="border border- my-3 px-4 pt-2 rounded-xl pb-2 shadow-[0_0_10px_rgba(0,0,0,0.4)]">
+      <h3 className="font-bold text-gray-800 pb-2">{task.title}</h3>
+      <p className="pb-2 text-base text-gray-500">{task.description}</p>
       {task.dueDate ? (
-        <p className="pb-2 text-center">Due on - {task.dueDate}</p>
+        <p className="pb-2 text-center text-sm text-gray-500">
+          Due on - {task.dueDate}
+        </p>
       ) : (
         <p className="pb-2 text-center">No Due Date</p>
       )}
-      <div className="font-semibold mb-2">
-        <span className="mr-5">
-          Status: <strong>{task.status}</strong>
-        </span>
-
+      <div className="font-semibold mb-2 flex justify-between">
         <span>
-          Priority: <strong>{task.priority}</strong>
+          Priority: <span style={{color: colorPriority}}>{displayPriority} </span>
+        </span>
+        <span>
+          Status: <span style={{color: colorStatus}}>{displayStatus}</span>
         </span>
       </div>
       <div className="flex justify-evenly">
-        <button onClick={handleStatusToggle} className={buttonStyle}>
+        <button
+          onClick={handleStatusToggle}
+          className={`${buttonStyle} text-green-800 bg-green-300`}
+        >
           {task.status === "completed" ? "Mark Incomplete" : "Mark Complete"}
         </button>
-        <button onClick={handleDeleteTask} className={buttonStyle}>Delete Task</button>
+        <button
+          onClick={handleDeleteTask}
+          className={`${buttonStyle} text-red-800 bg-red-300`}
+        >
+          Delete Task
+        </button>
       </div>
     </div>
   );
