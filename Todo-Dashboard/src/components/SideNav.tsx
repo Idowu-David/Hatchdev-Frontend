@@ -1,3 +1,13 @@
+import {
+  HiOutlineHome,
+  HiOutlineExclamationCircle,
+  HiOutlineCheckCircle,
+  HiOutlineTag,
+  HiOutlineCog,
+  HiOutlineQuestionMarkCircle,
+  HiOutlineArrowRight,
+} from "react-icons/hi2";
+
 interface SideNavProps {
   isSideNavOpen: boolean;
   onClose: () => void;
@@ -5,16 +15,16 @@ interface SideNavProps {
 
 const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
   const navLinks = [
-    { text: "Dashboard", href: "#" },
-    { text: "Vital Task", href: "#" },
-    { text: "My Task", href: "#" },
-    { text: "Task Categories", href: "#" },
-    { text: "Settings", href: "#" },
-    { text: "Help", href: "#" },
+    { text: "Dashboard", href: "#", icon: <HiOutlineHome /> },
+    { text: "Vital Task", href: "#", icon: <HiOutlineExclamationCircle /> },
+    { text: "My Task", href: "#", icon: <HiOutlineCheckCircle /> },
+    { text: "Task Categories", href: "#", icon: <HiOutlineTag /> },
+    { text: "Settings", href: "#", icon: <HiOutlineCog /> },
+    { text: "Help", href: "#", icon: <HiOutlineQuestionMarkCircle /> },
   ];
 
   const navStyles =
-    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all list-none w-[200px] font-semibold text-[16px]";
+    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px]";
 
   return (
     <aside
@@ -52,11 +62,21 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
       <div className="flex flex-col mt-5 px-1 ">
         {navLinks.map((nav) => (
           <li key={nav.text} className={navStyles}>
-            <a>{nav.text}</a>
+            <a href={nav.href} className="flex items-center gap-x-2 rounded-md">
+              <span>{nav.icon}</span>
+              <span>{nav.text}</span>
+            </a>
           </li>
         ))}
-			</div>
-			<p className={`${navStyles} absolute bottom-16`}>Logout</p>
+      </div>
+      <div
+        className={`flex items-center gap-x-2 absolute bottom-16 ${navStyles}`}
+      >
+        <div>
+          <HiOutlineArrowRight />
+        </div>
+        <p>Logout</p>
+      </div>
     </aside>
   );
 };
