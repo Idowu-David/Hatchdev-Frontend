@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <>
-      <div style={overlayStyle} />
+      <div style={overlayStyle} onClick={() => onClose()} />
       <div style={modalStyle}>
         <button onClick={() => onClose()}style={closeButtonStyle}>&times;</button>
         {children}

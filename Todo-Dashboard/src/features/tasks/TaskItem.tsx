@@ -18,9 +18,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
     if (window.confirm(`Are you sure you want to delete "${task.title}"`)) {
       dispatch(deleteTask(task.id));
     }
-  };
+	};
+	
+	const buttonStyle = "bg-red-300 p-1 rounded-md font-semibold hover:bg-[#ff6767] text-";
+
   return (
-    <div className="border border-black my-3 px-4 pt-2 rounded-xl pb-2">
+    <div className="border border- my-3 px-4 pt-2 rounded-xl pb-2 shadow-xl">
       <h3 className="font-bold pb-2">{task.title}</h3>
       <p className="pb-2 text-[#4d4b4b]">{task.description}</p>
       {task.dueDate ? (
@@ -38,10 +41,10 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
         </span>
       </div>
       <div className="flex justify-evenly">
-        <button onClick={handleStatusToggle} className="bg-lime-500 p-1">
+        <button onClick={handleStatusToggle} className={buttonStyle}>
           {task.status === "completed" ? "Mark Incomplete" : "Mark Complete"}
         </button>
-        <button onClick={handleDeleteTask}>Delete Task</button>
+        <button onClick={handleDeleteTask} className={buttonStyle}>Delete Task</button>
       </div>
     </div>
   );
