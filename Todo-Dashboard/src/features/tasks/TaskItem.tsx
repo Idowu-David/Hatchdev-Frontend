@@ -64,7 +64,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
   const colorStatus = statusMap[task.status]["color"];
 
   return (
-    <div className="border border- my-3 px-4 pt-2 rounded-xl pb-2 shadow-[0_0_10px_rgba(0,0,0,0.4)]">
+    <div className="my-3 px-4 pt-2 rounded-xl pb-2 shadow-[0_0_10px_rgba(0,0,0,0.4)]">
       <h3 className="font-bold text-gray-800 pb-2">{task.title}</h3>
       <p className="pb-2 text-base text-gray-500">{task.description}</p>
       {task.dueDate ? (

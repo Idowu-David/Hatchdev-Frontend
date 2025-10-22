@@ -13,26 +13,25 @@ const StatusCircle: React.FC<StatusCircleProps> = ({
   color,
   textColorClass,
 }) => {
-  // We create the gradient style dynamically
   const gradientStyle = {
     background: `conic-gradient(${color} ${percentage}%, #e5e7eb 0)`,
   };
 
   return (
-    <div className="p-4 rounded-lg flex relative items-center shadow-[0_0_5px_rgba(0,0,0,0.3)]">
+    <div className="p-4 rounded-lg flex relative items-center shadow-[0_0_5px_rgba(0,0,0,0.3)] w-1/3 h-h-full justify-center">
       <div
-        className="w-16 h-16 rounded-full flex items-center justify-center mb-3 mx-2"
+        className="w-14 h-14 rounded-full flex items-center justify-center mb-3 mx-2"
         style={gradientStyle}
       >
-        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-          <span className={`text-xl font-bold ${textColorClass}`}>
+        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+          <span className={`font-bold ${textColorClass}`}>
             {percentage}%
           </span>
         </div>
       </div>
 
       <div
-        className={`text-sm  absolute bottom-0 font-semibold w-full right-0 pl-4 pb-1`}
+        className={`text-sm absolute bottom-0 font-semibold w-full right-0 pb-1 text-center`}
       >
         ● {label}
       </div>
@@ -54,7 +53,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
   total,
 }) => {
   return (
-    <section className="mb-4 border-2 pb-6 rounded-xl">
+    <section className="mb-4 border-2 pb-6 rounded-xl w-full">
       <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">Task Status</h2>
       <div className="flex justify-evenly">
         <StatusCircle

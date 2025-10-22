@@ -5,8 +5,12 @@ import {
   HiOutlineTag,
   HiOutlineCog,
   HiOutlineQuestionMarkCircle,
-  HiOutlineArrowRight,
+	HiArrowLeftOnRectangle,
 } from "react-icons/hi2";
+import { logout } from "../features/auth/AuthSlice";
+import type { ActionCreatorWithoutPayload } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../hooks";
 
 interface SideNavProps {
   isSideNavOpen: boolean;
@@ -23,8 +27,16 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
     { text: "Help", href: "#", icon: <HiOutlineQuestionMarkCircle /> },
   ];
 
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+
   const navStyles =
     "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px]";
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
 
   return (
     <aside
@@ -73,9 +85,9 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
         className={`flex items-center gap-x-2 absolute bottom-16 ${navStyles}`}
       >
         <div>
-          <HiOutlineArrowRight />
+          <HiArrowLeftOnRectangle />
         </div>
-        <p>Logout</p>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </aside>
   );
