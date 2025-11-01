@@ -11,21 +11,18 @@ const LoginPage = () => {
 
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
 
   const handleLogin = () => {
     if (password === "password123") {
-      setError("");
-
       const mockUserData = {
-        user: { name: "Test User" },
+        user: { name: username },
         token: "mock-simple-token-123",
       };
       dispatch(loginSuccess(mockUserData));
       navigate("/");
-    } else {
-      setError("Wrong password! Please try again.");
-    }
+		} else {
+			window.alert('Default password is "password123"')
+		}
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -33,47 +30,43 @@ const LoginPage = () => {
     handleLogin();
   };
 
+  const inputStyle =
+    "border border-b-2 border-x-0 border-t-0 py-2 w-full shadow-sm pl-2 focus:shadow-xl focus:outline-none focus:p-3 rounded-md focus:font-semibold font-semibold focus:text-md";
+
   return (
-    <div className="bg-[#ff6767] w-full h-dvh flex flex-col justify-center items-center bg-[url('/login-background.png')] bg-center bg-no-repeat bg-cover">
-      <div className="bg-white rounded-3xl pb-40 pt-14 w-3/4 max-w-[330px]">
-        <div className="flex flex-col w-full px-6">
-          <h1 className="text-[1.9rem] font-bold m-0">Login</h1>
-					<p className="text-gray-600 w-full text-[0.9rem] mb-2">Please sign in to continue</p>
-          <form onSubmit={handleSubmit}>
-            <div className="flex w-full max-w-[350px] flex-col gap-[0.8rem]">
-              <input
-                type="text"
-                id="username"
-                placeholder="Enter Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className="h-[1.9rem] w-full rounded border border-black pl-4 placeholder:font-bold focus:ring-2-blue-500 text-[10px]"
-              />
-              <input
-                type="password"
-                id="user-password"
-                placeholder="Enter password..."
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="h-[1.9rem] w-full rounded border border-black pl-4 placeholder:font-bold focus:ring-2-blue-500 text-[10px]"
-              />
-            </div>
-            <label className="inline-flex py-3 text-xs font-semibold">
-              <input type="checkbox" />
-              Remember Me
-            </label>
+    <div className="w-full bg-[#ff6767] h-dvh bg-[url('./login-background.png')] bg-no-repeat bg-cover flex flex-col justify-center items-center">
+      <div className="bg-white w-[85%] h-[75%] p-6 py-20 rounded-3xl relative">
+        {/* <img src="./login-man.png" className="absolute z-10 opacity-80 object-contain " /> */}
+        <div className="relative z-20 ">
+          <h2 className="font-bold text-[2.15rem]">Login</h2>
+          <p className="font-semibold text-lg text-gray-500">Please sign in to continue</p>
+          <form
+            onSubmit={handleSubmit}
+            className="py-10 gap-4  flex flex-col relative"
+          >
+            <input
+              placeholder="USERNAME"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className={inputStyle}
+            />
+            <input
+              placeholder="PASSWORD"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={inputStyle}
+						/>
+						<p className="text-center text-gray-500">(Default password is <strong>password123</strong>)</p>
             <button
-              className="mt-4 flex w-fit items-center justify-center rounded-[3px] bg-[#fa8888] py-[0.6rem] px-[1.2rem] text-[10px] text-white hover:bg-[#fa6e6e]"
               type="submit"
-              onClick={handleLogin}
+              className="p-3 bg-[#ff6767] text-white rounded-full shadow-md w-32 mt-6"
             >
               Login
             </button>
           </form>
         </div>
-        {/* <div className="image-container">
-					<img src="./login-man.png"/>
-				</div> */}
       </div>
     </div>
   );

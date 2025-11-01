@@ -12,6 +12,7 @@ const DashboardLayout: React.FC = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(false);
 
   const { tasks } = useAppSelector((state) => state.tasks);
+  const user = useAppSelector((state) => state.auth);
 
   const activeTasks = tasks.filter((task) => task.status !== "completed");
 
@@ -32,7 +33,7 @@ const DashboardLayout: React.FC = () => {
       <div className="relative lg:max-w-4xl lg:w-[90%] bg-white rounded-xl overflow-hidden lg:h-[90%] lg:grid lg:grid-rows-[auto_auto_1fr]">
         <header
           className="sticky top-0 z-20
-				bg-red-200 shadow-md flex items-center justify-between p-3 h-13 mb-3"
+				shadow-md flex items-center justify-between p-3 h-13 mb-3"
         >
           <div className="font-bold text-3xl">
             <span className="text-[#ff6867]">Dash</span>
@@ -52,90 +53,82 @@ const DashboardLayout: React.FC = () => {
             </p>
           </div>
         </header>
+        <div className="flex items-center relative gap-2">
+          <button
+            onClick={() => setisSideBarOpen(!isSideBarOpen)}
+            className="absolute top-2 ml-4"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeWidth={3}
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+          <h2 className="text-2xl font-bold text-center mb-4 w-full">
+            {`Welcome, ${user.user?.name}`}
+          </h2>
+        </div>
+        <div className="mx-3 shadow-lg rounded-lg">
+          <aside>
+            <SideNav
+              isSideNavOpen={isSideBarOpen}
+              onClose={() => setisSideBarOpen(false)}
+            />
+            {isSideBarOpen && (
+              <div
+                onClick={() => setisSideBarOpen(false)}
+                className="fixed inset-0 bg-black opacity-50 z-20 md:hidden"
+              ></div>
+            )}
+          </aside>
 
-        <div className="grid grid-cols-[auto_1fr] lg:grid-cols-1">
-					
-					<button
-						className="lg:hidden ml-4 "
-						onClick={() => setisSideBarOpen(!isSideBarOpen)}
-					>
-						<svg
-							className="w-6 h-6"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								strokeLinecap="round"
-								strokeWidth={3}
-								d="M4 6h16M4 12h16M4 18h16"
-							></path>
-						</svg>
-					</button>
-					<h2 className="text-2xl font-bold text-center mb-4">
-						Welcome back, David👋
-					</h2>
-				</div>
-
-        <div className="">
-          <div className="mx-4 lg:flex lg:gap-8 lg:h-full">
-            <aside className="">
-              <SideNav
-                isSideNavOpen={isSideBarOpen}
-                onClose={() => setisSideBarOpen(false)}
+          <main className="p-4 pt-0 relative mt-">
+            <div className="flex items-center justify-center">
+              <TaskStatus
+                completedTasks={noCompletedTasks}
+                inProgressTasks={noInProgressTasks}
+                notStartedTasks={noNotStartedTasks}
+                total={totalTasks}
               />
-              {isSideBarOpen && (
-                <div
-                  onClick={() => setisSideBarOpen(false)}
-                  className="fixed inset-0 bg-black opacity-50 z-20 lg:hidden"
-                ></div>
-              )}
-            </aside>
-            <main className="p-4 pt-0 mt-6 mx-auto md:mx-0 lg:border lg:border-[#9d9696] lg:grid lg:grid-rows-[auto_1fr] w-full">
-              <section className="md:flex md:flex-col mb-4 border-2 pb-6 rounded-xl max-w-lg mx-auto lg:mt-2">
-                <TaskStatus
-                  completedTasks={noCompletedTasks}
-                  inProgressTasks={noInProgressTasks}
-                  notStartedTasks={noNotStartedTasks}
-                  total={totalTasks}
+            </div>
+            <button
+              className="font-semibold absolute right-4 mt-1"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <span className="text-[#ff6767]">+</span> Add Task
+            </button>
+            <div className="">
+              <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <AddTaskForm onFormSubmit={() => setIsModalOpen(false)} />
+              </Modal>
+              {/* Active Tasks */}
+              <div>
+                <TaskList
+                  tasks={activeTasks}
+                  title="To-Do"
+                  emptyMessage="No active tasks. Greate job!"
                 />
-              </section>
-              
-              <div className="md:grid md:grid-cols-2 md:gap-4">
-								
-                <div className="">
-									<button
-                className="font-semibold"
-                onClick={() => setIsModalOpen(true)}
-              >
-                <span className="text-[#ff6767]">+</span> Add Task
-              </button>
-                  <Modal
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                  >
-                    <AddTaskForm onFormSubmit={() => setIsModalOpen(false)} />
-                  </Modal>
-                  {/* Active Tasks */}
-                  <div>
-                    <TaskList
-                      tasks={activeTasks}
-                      title="To-Do"
-                      emptyMessage="No active tasks. Greate job!"
-                    />
-                  </div>
-                </div>
-                {/* Task Status */}
-                <div>
-                  <TaskList
-                    tasks={completedTasks}
-                    title="Completed"
-                    emptyMessage="No tasks completed yet."
-                  />
-                </div>
               </div>
-            </main>
-          </div>
+            </div>
+
+            {/* Task Status */}
+            <div className="">
+              <div>
+                <TaskList
+                  tasks={completedTasks}
+                  title="Completed"
+                  emptyMessage="No tasks completed yet."
+                />
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </div>

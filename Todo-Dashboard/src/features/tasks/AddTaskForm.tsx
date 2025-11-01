@@ -35,12 +35,13 @@ const AddTaskForm:React.FC<AddTaskFormProps> = ({ onFormSubmit }) => {
     <div>
       <form>
         <label htmlFor="title">Title</label>
-        <div>
+        <div className="border border-black">
           <input
             type="text"
             id="title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+						onChange={(e) => setTitle(e.target.value)}
+						className="focus:outline-none pl-1"
           />
         </div>
 
@@ -105,10 +106,11 @@ const AddTaskForm:React.FC<AddTaskFormProps> = ({ onFormSubmit }) => {
           <textarea
             id="description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+						onChange={(e) => setDescription(e.target.value)}
+						className="border border-black w-full pl-1"
           />
         </div>
-        <button onClick={submitTask}>Done</button>
+        <button onClick={submitTask} >Done</button>
       </form>
     </div>
   );
