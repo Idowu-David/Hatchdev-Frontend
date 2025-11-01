@@ -35,9 +35,10 @@ const LoginPage = () => {
 
   return (
     <div className="bg-[#ff6767] w-full h-dvh flex flex-col justify-center items-center bg-[url('/login-background.png')] bg-center bg-no-repeat bg-cover">
-      <div className="bg-white w-3/4 rounded-[0.4rem] pl-8 pb-40 pt-14 max-w-[700px]">
-        <div className="flex flex-col w-1/2">
-          <h1 className="pb-2 text-[1.6rem] font-bold m-0">Sign In</h1>
+      <div className="bg-white rounded-3xl pb-40 pt-14 w-3/4 max-w-[330px]">
+        <div className="flex flex-col w-full px-6">
+          <h1 className="text-[1.9rem] font-bold m-0">Login</h1>
+					<p className="text-gray-600 w-full text-[0.9rem] mb-2">Please sign in to continue</p>
           <form onSubmit={handleSubmit}>
             <div className="flex w-full max-w-[350px] flex-col gap-[0.8rem]">
               <input

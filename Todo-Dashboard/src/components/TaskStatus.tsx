@@ -3,8 +3,8 @@ import React from "react";
 interface StatusCircleProps {
   percentage: number;
   label: string;
-  color: string; // e.g., "#22c55e"
-  textColorClass: string; // e.g., "text-green-500"
+  color: string;
+  textColorClass: string;
 }
 
 const StatusCircle: React.FC<StatusCircleProps> = ({
@@ -13,7 +13,6 @@ const StatusCircle: React.FC<StatusCircleProps> = ({
   color,
   textColorClass,
 }) => {
-  // We create the gradient style dynamically
   const gradientStyle = {
     background: `conic-gradient(${color} ${percentage}%, #e5e7eb 0)`,
   };
@@ -54,9 +53,11 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
   total,
 }) => {
   return (
-    <section className="mb-4 border-2 pb-6 rounded-xl">
-      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">Task Status</h2>
-      <div className="flex justify-evenly">
+    <div className="">
+      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">
+        Task Status
+      </h2>
+      <div className="flex justify-evenly sm:justify-center sm:gap-3 md:mx-3">
         <StatusCircle
           percentage={
             completedTasks ? Math.floor((completedTasks * 100) / total) : 0
@@ -70,7 +71,8 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
             inProgressTasks ? Math.floor((inProgressTasks * 100) / total) : 0
           }
           label="In Progress"
-          color="#3b82f6"          textColorClass="text-blue-500"
+          color="#3b82f6"
+          textColorClass="text-blue-500"
         />
         <StatusCircle
           percentage={
@@ -81,7 +83,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
           textColorClass="text-red-500"
         />
       </div>
-    </section>
+    </div>
   );
 };
 
