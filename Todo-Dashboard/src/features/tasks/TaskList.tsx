@@ -17,7 +17,7 @@ const TaskList: React.FC<TaskListProps> = ({ title, tasks, emptyMessage }) => {
       {tasks.length > 0 ? (
         tasks.map((task) => <TaskItem key={task.id} task={task} />)
       ) : (
-        <p className="text-lg text-center py-1 font-semibold">{emptyMessage}</p>
+        <p className="text-lg lg:text-base text-center py-1 font-semibold">{emptyMessage}</p>
       )}
     </div>
   );

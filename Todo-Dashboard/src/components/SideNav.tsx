@@ -8,7 +8,6 @@ import {
 	HiArrowLeftOnRectangle,
 } from "react-icons/hi2";
 import { logout } from "../features/auth/AuthSlice";
-import type { ActionCreatorWithoutPayload } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../hooks";
 
@@ -31,7 +30,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 	const dispatch = useAppDispatch();
 
   const navStyles =
-    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px]";
+    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px] lg:py-0";
 
   const handleLogout = () => {
     dispatch(logout());
@@ -44,7 +43,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 				transition-transform duration-300 ease-in-out bottom-0 shadow-[8px_0px_15px_-3px_rgba(0,0,0,0.15)]
 			 ${isSideNavOpen ? "translate-x-0" : "-translate-x-full"}
 			 lg:static lg:translate-x-0
-			 lg:h-full
+			 lg:h-full lg:w-auto
 				`}
     >
       <button className="absolute right-3 top-2 lg:hidden" onClick={onClose}>
@@ -84,14 +83,14 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
         ))}
       </div>
       <div
-        className={`flex items-center gap-x-2 absolute bottom-16 ${navStyles}`}
+        className={`flex items-center gap-x-2 ml-1 mt-2 ${navStyles}`}
       >
         <div>
           <HiArrowLeftOnRectangle />
         </div>
         <button onClick={handleLogout}>Logout</button>
       </div>
-    </aside>
+    </div>
   );
 };
 

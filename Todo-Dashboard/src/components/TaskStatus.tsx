@@ -18,15 +18,13 @@ const StatusCircle: React.FC<StatusCircleProps> = ({
   };
 
   return (
-    <div className="p-4 rounded-lg flex relative items-center shadow-[0_0_5px_rgba(0,0,0,0.3)] w-1/3 h-h-full justify-center">
+    <div className="py-3 rounded-lg flex relative items-center w-1/4 shadow-[0_0_5px_rgba(0,0,0,0.3)] h-h-full justify-center">
       <div
         className="w-14 h-14 rounded-full flex items-center justify-center mb-3 mx-2"
         style={gradientStyle}
       >
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-          <span className={`font-bold ${textColorClass}`}>
-            {percentage}%
-          </span>
+          <span className={`font-bold ${textColorClass}`}>{percentage}%</span>
         </div>
       </div>
 
@@ -53,9 +51,11 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
   total,
 }) => {
   return (
-    <section className="mb-4 border-2 pb-6 rounded-xl w-full">
-      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">Task Status</h2>
-      <div className="flex justify-evenly">
+    <section className="mb-4 border-2 pb-6 rounded-xl w-full lg:w-3/4 lg:mt-2 lg:px-2">
+      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">
+        Task Status
+      </h2>
+      <div className="flex justify-evenly lg:justify-end lg:gap-3">
         <StatusCircle
           percentage={
             completedTasks ? Math.floor((completedTasks * 100) / total) : 0
@@ -81,7 +81,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
           textColorClass="text-red-500"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

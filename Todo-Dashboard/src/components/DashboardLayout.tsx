@@ -56,7 +56,7 @@ const DashboardLayout: React.FC = () => {
         <div className="flex items-center relative gap-2">
           <button
             onClick={() => setisSideBarOpen(!isSideBarOpen)}
-            className="absolute top-2 ml-4"
+            className="absolute top-2 ml-4 lg:hidden"
           >
             <svg
               className="w-6 h-6"
@@ -75,7 +75,7 @@ const DashboardLayout: React.FC = () => {
             {`Welcome, ${user.user?.name}`}
           </h2>
         </div>
-        <div className="mx-3 shadow-lg rounded-lg">
+        <div className="mx-3 mb-3 rounded-lg lg:grid lg:grid-cols-[260px_1fr] gap-5">
           <aside>
             <SideNav
               isSideNavOpen={isSideBarOpen}
@@ -89,8 +89,8 @@ const DashboardLayout: React.FC = () => {
             )}
           </aside>
 
-          <main className="p-4 pt-0 relative mt-">
-            <div className="flex items-center justify-center">
+          <main className="p-4 pt-0 border border-black lg:overflow-y-auto lg:min-h-0 lg:h-[420px]">
+            <div className="flex items-center justify-center lg:justify-end">
               <TaskStatus
                 completedTasks={noCompletedTasks}
                 inProgressTasks={noInProgressTasks}
@@ -98,34 +98,38 @@ const DashboardLayout: React.FC = () => {
                 total={totalTasks}
               />
             </div>
-            <button
-              className="font-semibold absolute right-4 mt-1"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <span className="text-[#ff6767]">+</span> Add Task
-            </button>
-            <div className="">
-              <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <AddTaskForm onFormSubmit={() => setIsModalOpen(false)} />
-              </Modal>
-              {/* Active Tasks */}
-              <div>
-                <TaskList
-                  tasks={activeTasks}
-                  title="To-Do"
-                  emptyMessage="No active tasks. Greate job!"
-                />
-              </div>
-            </div>
 
-            {/* Task Status */}
-            <div className="">
-              <div>
-                <TaskList
-                  tasks={completedTasks}
-                  title="Completed"
-                  emptyMessage="No tasks completed yet."
-                />
+            <div className="lg:grid lg:grid-cols-2 lg:gap-2">
+              <div className="">
+                <Modal
+                  isOpen={isModalOpen}
+                  onClose={() => setIsModalOpen(false)}
+                >
+                  <AddTaskForm onFormSubmit={() => setIsModalOpen(false)} />
+                </Modal>
+                <button
+                  className="font-semibold mb-2"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <span className="text-[#ff6767]">+</span> Add Task
+                </button>
+                <div>
+                  <TaskList
+                    tasks={activeTasks}
+                    title="To-Do"
+                    emptyMessage="No active tasks. Greate job!"
+                  />
+                </div>
+              </div>
+              {/* Task Status */}
+              <div className="">
+                <div>
+                  <TaskList
+                    tasks={completedTasks}
+                    title="Completed"
+                    emptyMessage="No tasks completed yet."
+                  />
+                </div>
               </div>
             </div>
           </main>
