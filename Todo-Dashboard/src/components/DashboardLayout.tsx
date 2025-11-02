@@ -29,7 +29,7 @@ const DashboardLayout: React.FC = () => {
   const totalTasks = noCompletedTasks + noInProgressTasks + noNotStartedTasks;
 
   return (
-    <div className="h-dvh lg:bg-[url(./dashboard-bg.png)] lg:bg-cover lg:bg-no-repeat lg:bg-center lg:flex lg:justify-center lg:items-center">
+    <div className="h-dvh lg:bg-[url(/dashboard-bg.png)] lg:bg-cover lg:bg-no-repeat lg:bg-center lg:flex lg:justify-center lg:items-center">
       <div className="relative lg:max-w-4xl lg:w-[90%] bg-white rounded-xl overflow-hidden lg:h-[90%] lg:grid lg:grid-rows-[auto_auto_1fr]">
         <header
           className="sticky top-0 z-20

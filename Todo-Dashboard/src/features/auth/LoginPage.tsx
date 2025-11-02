@@ -34,7 +34,7 @@ const LoginPage = () => {
     "border border-b-2 border-x-0 border-t-0 py-2 w-full shadow-sm pl-2 focus:shadow-xl focus:outline-none focus:p-3 rounded-md focus:font-semibold font-semibold focus:text-md";
 
   return (
-    <div className="w-full bg-[#ff6767] h-dvh bg-[url('./login-background.png')] bg-no-repeat bg-cover flex flex-col justify-center items-center">
+    <div className="w-full bg-[#ff6767] h-dvh bg-[url('/login-background.png')] bg-no-repeat bg-cover flex flex-col justify-center items-center">
       <div className="bg-white w-[85%] h-[85%] p-6 py-20 rounded-3xl relative max-w-sm">
         {/* <img src="./login-man.png" className="absolute z-10 opacity-80 object-contain " /> */}
         <div className="relative z-20 ">
