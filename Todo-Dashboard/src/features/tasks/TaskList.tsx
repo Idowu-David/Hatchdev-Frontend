@@ -11,7 +11,7 @@ interface TaskListProps {
 const TaskList: React.FC<TaskListProps> = ({ title, tasks, emptyMessage }) => {
   return (
     <div>
-      <h2 className="text-[#ff6867] font-bold">
+      <h2 className="text-red-400 font-bold">
         {title} <span className="text-black">({tasks.length})</span>
       </h2>
       {tasks.length > 0 ? (

@@ -30,7 +30,7 @@ const DashboardLayout: React.FC = () => {
 
   return (
     <div className="h-dvh lg:bg-[url(/dashboard-bg.png)] lg:bg-cover lg:bg-no-repeat lg:bg-center lg:flex lg:justify-center lg:items-center">
-      <div className="relative lg:max-w-4xl lg:w-[90%] bg-white rounded-xl overflow-hidden lg:h-[90%] lg:grid lg:grid-rows-[auto_auto_1fr]">
+      <div className="relative lg:max-w-4xl lg:w-[90%] bg-white rounded-xl overflow-hidden lg:grid lg:grid-rows-[auto_auto_1fr] lg:h-[85vh]">
         <header
           className="sticky top-0 z-20
 				shadow-md flex items-center justify-between p-3 h-13 mb-3"
@@ -75,7 +75,7 @@ const DashboardLayout: React.FC = () => {
             {`Welcome, ${user.user?.name}`}
           </h2>
         </div>
-        <div className="mx-3 mb-3 rounded-lg lg:grid lg:grid-cols-[260px_1fr] gap-5">
+        <div className="mr-2 rounded-lg lg:grid lg:grid-cols-[210px_1fr] gap-5 lg:h-full lg:min-h-0">
           <aside>
             <SideNav
               isSideNavOpen={isSideBarOpen}
@@ -89,7 +89,7 @@ const DashboardLayout: React.FC = () => {
             )}
           </aside>
 
-          <main className="p-4 pt-0 border border-black lg:overflow-y-auto lg:min-h-0 lg:h-[420px]">
+          <main className="p-4 pt-0 border border-black lg:overflow-y-scroll lg:min-h-0 lg:h-full">
             <div className="flex items-center justify-center lg:justify-end">
               <TaskStatus
                 completedTasks={noCompletedTasks}
@@ -121,7 +121,6 @@ const DashboardLayout: React.FC = () => {
                   />
                 </div>
               </div>
-              {/* Task Status */}
               <div className="">
                 <div>
                   <TaskList

@@ -30,7 +30,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 	const dispatch = useAppDispatch();
 
   const navStyles =
-    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px] lg:py-0";
+    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px] lg:py-0 lg:text-sm lg:w-[95%]";
 
   const handleLogout = () => {
     dispatch(logout());
@@ -43,7 +43,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 				transition-transform duration-300 ease-in-out bottom-0 shadow-[8px_0px_15px_-3px_rgba(0,0,0,0.15)]
 			 ${isSideNavOpen ? "translate-x-0" : "-translate-x-full"}
 			 lg:static lg:translate-x-0
-			 lg:h-full lg:w-auto
+			 lg:h-full lg:w-auto lg:pt-0
 				`}
     >
       <button className="absolute right-3 top-2 lg:hidden" onClick={onClose}>
@@ -61,7 +61,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
           />
         </svg>
       </button>
-      <div className="flex flex-col justify-center items-center px-3">
+      <div className="flex flex-col justify-center items-center px-3 pt-1">
         <div>
           <img
             src="image.jpg"
@@ -83,7 +83,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
         ))}
       </div>
       <div
-        className={`flex items-center gap-x-2 ml-1 mt-2 ${navStyles}`}
+        className={`flex items-center gap-x-2 ml-1 mt-4 ${navStyles}`}
       >
         <div>
           <HiArrowLeftOnRectangle />

@@ -18,18 +18,20 @@ const StatusCircle: React.FC<StatusCircleProps> = ({
   };
 
   return (
-    <div className="py-3 rounded-lg flex relative items-center w-1/4 shadow-[0_0_5px_rgba(0,0,0,0.3)] h-h-full justify-center">
+    <div className="py-3 rounded-lg flex relative items-center w-1/4 shadow-[0_0_5px_rgba(0,0,0,0.3)] justify-center lg:py-1">
       <div
-        className="w-14 h-14 rounded-full flex items-center justify-center mb-3 mx-2"
+        className="w-14 h-14 rounded-full flex items-center justify-center mb-3 mx-2 lg:w-12 lg:h-12"
         style={gradientStyle}
       >
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-          <span className={`font-bold ${textColorClass}`}>{percentage}%</span>
+        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center lg:w-8 lg:h-8">
+          <span className={`font-bold lg:text-sm ${textColorClass}`}>
+            {percentage}%
+          </span>
         </div>
       </div>
 
       <div
-        className={`text-sm absolute bottom-0 font-semibold w-full right-0 pb-1 text-center`}
+        className={`text-sm absolute bottom-0 font-semibold w-full right-0 pb-1 text-center lg:text-xs`}
       >
         ● {label}
       </div>
@@ -51,11 +53,11 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
   total,
 }) => {
   return (
-    <section className="mb-4 border-2 pb-6 rounded-xl w-full lg:w-3/4 lg:mt-2 lg:px-2">
-      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867]">
+    <section className="mb-4 border-2 pb-4 rounded-xl w-full lg:w-2/3 lg:mt-2 lg:px-2 lg:pb-2 sm:max-w-md md:max-w-lg">
+      <h2 className="text-base font-bold mb-4 pl-8 pt-2 text-[#ff6867] lg:pt-0 lg:mb-2">
         Task Status
       </h2>
-      <div className="flex justify-evenly lg:justify-end lg:gap-3">
+      <div className="flex justify-evenly">
         <StatusCircle
           percentage={
             completedTasks ? Math.floor((completedTasks * 100) / total) : 0

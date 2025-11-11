@@ -21,7 +21,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
     }
   };
 
-  const buttonStyle = "p-1 rounded-md font-semibold border border-t-2 shadow-m";
+  const buttonStyle = "p-1 rounded-md font-semibold border border-t-2 shadow-m lg:text-xs";
 
   const priorityMap = {
     low: {
@@ -65,16 +65,16 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
   return (
     <div className="border border- my-3 px-4 pt-2 rounded-xl pb-2 shadow-[0_0_10px_rgba(0,0,0,0.4)] max-w-lg mx-auto md:max-w-lg md:mx-auto">
-      <h3 className="font-bold text-gray-800 pb-2">{task.title}</h3>
-      <p className="pb-2 text-base text-gray-500">{task.description}</p>
+      <h3 className="font-bold text-gray-800 pb-2 lg:text-sm">{task.title}</h3>
+      <p className="pb-2 text-base text-gray-500 lg:text-xs">{task.description}</p>
       {task.dueDate ? (
-        <p className="pb-2 text-center text-sm text-gray-500">
+        <p className="pb-2 text-center text-sm text-gray-500 lg:text-xs">
           Due on - {task.dueDate}
         </p>
       ) : (
         <p className="pb-2 text-center">No Due Date</p>
       )}
-      <div className="font-semibold mb-2 flex justify-between">
+      <div className="font-semibold mb-2 flex justify-between lg:text-xs">
         <span>
           Priority: <span style={{color: colorPriority}}>{displayPriority} </span>
         </span>
