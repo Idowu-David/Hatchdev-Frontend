@@ -89,7 +89,7 @@ const DashboardLayout: React.FC = () => {
             )}
           </aside>
 
-          <main className="p-4 pt-0 border border-black lg:overflow-y-scroll lg:min-h-0 lg:h-full">
+          <main className="p-4 pt-0 lg:border lg:border-black lg:overflow-y-scroll lg:min-h-0 lg:h-full">
             <div className="flex items-center justify-center lg:justify-end">
               <TaskStatus
                 completedTasks={noCompletedTasks}
@@ -99,7 +99,7 @@ const DashboardLayout: React.FC = () => {
               />
             </div>
 
-            <div className="lg:grid lg:grid-cols-2 lg:gap-2">
+            <div className="md:grid md:grid-cols-2 md:gap-4 lg:gap-2">
               <div className="">
                 <Modal
                   isOpen={isModalOpen}

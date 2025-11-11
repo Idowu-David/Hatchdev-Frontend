@@ -30,7 +30,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 	const dispatch = useAppDispatch();
 
   const navStyles =
-    "hover:bg-[white] hover:text-[#ff6767] py-3 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px] lg:py-0 lg:text-sm lg:w-[95%]";
+    "hover:bg-[white] hover:text-[#ff6767] py-2 px-3 hover:rounded-[8px] transition-all duration-200 list-none w-[200px] font-semibold text-[16px] lg:text-sm lg:w-[95%] lg:py-1";
 
   const handleLogout = () => {
     dispatch(logout());
@@ -72,7 +72,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
         <p className="text-[14px] font-semibold">David Idowu</p>
         <p className="text-[10px]">idowudavidodun@gmail.com</p>
       </div>
-      <div className="flex flex-col mt-5 px-1 lg:grid lg:grid-rows-6 lg:gap-3 ">
+      <div className="flex flex-col mt-5 px-1 lg:grid lg:grid-rows-6 lg:gap-1">
         {navLinks.map((nav) => (
           <li key={nav.text} className={navStyles}>
             <a href={nav.href} className="flex items-center gap-x-2 rounded-md">
