@@ -35,7 +35,7 @@ const LoginPage = () => {
 
   return (
     <div className="w-full bg-[#ff6767] h-dvh bg-[url('/login-background.png')] bg-no-repeat bg-cover flex flex-col justify-center items-center">
-      <div className="bg-white w-[85%] h-[85%] p-6 py-20 rounded-3xl relative max-w-sm">
+      <div className="bg-white w-[85%] h-[85%] p-6 py-20 rounded-3xl relative max-w-sm max-h-[620px]">
         {/* <img src="./login-man.png" className="absolute z-10 opacity-80 object-contain " /> */}
         <div className="relative z-20 ">
           <h2 className="font-bold text-[2.15rem]">Login</h2>
