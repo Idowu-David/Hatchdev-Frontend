@@ -1,0 +1,51 @@
+1. Login Page
+
+Input: email/username + password
+
+Action: On submit, check if the credentials exist in the database.
+
+If user not found → redirect to Sign Up page.
+
+If found but wrong password → show error (“Invalid credentials”).
+
+If valid → redirect to Dashboard (tasks page).
+
+2. Sign Up Page
+
+Input validation: Check for
+
+empty fields
+
+valid email format
+
+password length (e.g., min 6 chars)
+
+Action:
+
+If valid → hash password, save new user to DB
+
+Then redirect to Login page
+
+3. Dashboard
+
+On login:
+
+Fetch tasks belonging to the logged-in user from DB.
+
+If none exist, show “No tasks yet” or an empty state.
+
+Add task:
+
+Input new task title/description.
+
+Save to DB under that user’s ID.
+
+Re-render tasks list.
+
+4. (Optional for later)
+
+Update task (mark as done, edit text)
+
+Delete task
+
+Logout button (clear session/token)
