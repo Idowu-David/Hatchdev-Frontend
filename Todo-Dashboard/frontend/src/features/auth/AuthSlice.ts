@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { Navigate } from "react-router-dom";
 
 interface User {
   name: string;

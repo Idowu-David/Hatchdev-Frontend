@@ -8,7 +8,7 @@ import {
 	HiArrowLeftOnRectangle,
 } from "react-icons/hi2";
 import { logout } from "../features/auth/AuthSlice";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAppDispatch } from "../hooks";
 
 interface SideNavProps {
@@ -26,7 +26,6 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
     { text: "Help", href: "#", icon: <HiOutlineQuestionMarkCircle /> },
   ];
 
-	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
   const navStyles =
@@ -34,7 +33,7 @@ const SideNav: React.FC<SideNavProps> = ({ isSideNavOpen, onClose }) => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/login");
+    <Navigate to={'/login'}/>
   };
 
   return (

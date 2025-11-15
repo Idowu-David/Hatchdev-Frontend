@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks";
 import { loginSuccess } from "./AuthSlice";
 import { useState } from "react";
@@ -20,9 +20,9 @@ const LoginPage = () => {
       };
       dispatch(loginSuccess(mockUserData));
       navigate("/");
-		} else {
-			window.alert('Default password is "password123"')
-		}
+    } else {
+      window.alert('Default password is "password123"');
+    }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -39,7 +39,9 @@ const LoginPage = () => {
         {/* <img src="./login-man.png" className="absolute z-10 opacity-80 object-contain " /> */}
         <div className="relative z-20 ">
           <h2 className="font-bold text-[2.15rem]">Login</h2>
-          <p className="font-semibold text-lg text-gray-500">Please sign in to continue</p>
+          <p className="font-semibold text-lg text-gray-500">
+            Please sign in to continue
+          </p>
           <form
             onSubmit={handleSubmit}
             className="py-10 gap-4  flex flex-col relative"
@@ -57,14 +59,20 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={inputStyle}
-						/>
-						<p className="text-center text-gray-500">(Default password is <strong>password123</strong>)</p>
+            />
+           
             <button
               type="submit"
-              className="p-3 bg-[#ff6767] text-white rounded-full shadow-md w-32 mt-6"
+              className="p-3 bg-[#ff6767] text-white rounded-full shadow-md w-32 mt-4"
             >
               Login
             </button>
+            <p className="text-center text-gray-500 text-sm">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-red-500 font-bold">
+                Signup here
+              </Link>
+            </p>
           </form>
         </div>
       </div>
