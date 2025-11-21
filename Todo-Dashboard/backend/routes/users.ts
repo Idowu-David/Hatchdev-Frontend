@@ -20,6 +20,7 @@ const signupValidation = [
  * @desc Register a new user
  */
 
+
 router.post(
   "/signup",
   signupValidation,
@@ -38,7 +39,9 @@ router.post(
         `INSERT INTO users (username, email, password)
 			VALUES ($1, $2, $3) RETURNING *`,
         [username, email, hashedPassword]
-      );
+			);
+			
+			console.log(result)
 
       res.status(201).json({ message: "User created", user: result.rows[0] });
     } catch (err) {

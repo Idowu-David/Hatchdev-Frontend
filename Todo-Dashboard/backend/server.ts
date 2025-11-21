@@ -4,16 +4,18 @@ import cors from "cors";
 import userRoutes from "./routes/users";
 import "reflect-metadata";
 import db from "./db"
+import { env } from "process";
 
 dotenv.config();
 
 const app: Express = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.SERVER_PORT || 5000;
+
+console.log(process.env.DB_PORT);
 
 app.use(express.json());
 app.use(cors());
-
-app.use("/auth/", userRoutes);
+app.use("/auth", userRoutes);
 
 
 app.listen(PORT, () => {

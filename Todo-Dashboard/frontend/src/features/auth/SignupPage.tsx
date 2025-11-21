@@ -18,8 +18,8 @@ const LoginPage = () => {
         password,
         username,
         email,
-      });
-      
+			});
+      console.log(response.status);
     } catch (err) {
       console.log(err);
     }
@@ -66,7 +66,8 @@ const LoginPage = () => {
             />
             <button
               type="submit"
-              className="p-3 bg-blue-500 text-white rounded-full shadow-md w-32 mt-5"
+							className="p-3 bg-blue-500 text-white rounded-full shadow-md w-32 mt-5 hover:bg-slate-800"
+							onClick={() => console.log('Clicked')}
             >
               Sign up
             </button>
