@@ -15,6 +15,7 @@ console.log(process.env.DB_PORT);
 
 app.use(express.json());
 app.use(cors());
+
 app.use("/auth", userRoutes);
 
 
