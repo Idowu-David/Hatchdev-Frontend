@@ -5,7 +5,6 @@ import { loginSuccess } from "./AuthSlice";
 import { useState } from "react";
 import "../../styles/loginPage.css";
 import axios from "axios";
-import { type User } from "./AuthSlice";
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
