@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useAppDispatch } from "../../hooks";
 // import { loginSuccess } from "./AuthSlice";
 import axios from "axios";
 
 const LoginPage = () => {
   // const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -18,8 +19,9 @@ const LoginPage = () => {
         password,
         username,
         email,
-			});
-      console.log(response.status);
+      });
+      console.log(response.data);
+      navigate("./login");
     } catch (err) {
       console.log(err);
     }
@@ -66,8 +68,8 @@ const LoginPage = () => {
             />
             <button
               type="submit"
-							className="p-3 bg-blue-500 text-white rounded-full shadow-md w-32 mt-5 hover:bg-slate-800"
-							onClick={() => console.log('Clicked')}
+              className="p-3 bg-blue-500 text-white rounded-full shadow-md w-32 mt-5 hover:bg-slate-800"
+              onClick={() => console.log("Clicked")}
             >
               Sign up
             </button>
