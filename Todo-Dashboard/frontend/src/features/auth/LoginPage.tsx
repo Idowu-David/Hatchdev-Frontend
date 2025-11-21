@@ -4,30 +4,31 @@ import { useAppDispatch } from "../../hooks";
 import { loginSuccess } from "./AuthSlice";
 import { useState } from "react";
 import "../../styles/loginPage.css";
+import axios from "axios";
+import { type User } from "./AuthSlice";
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleLogin = () => {
-    if (password === "password123") {
-      const mockUserData = {
-        user: { name: username },
-        token: "mock-simple-token-123",
-      };
-      dispatch(loginSuccess(mockUserData));
-      navigate("/");
-    } else {
-      window.alert('Default password is "password123"');
-    }
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    handleLogin();
+    try {
+      const response = await axios.post("http://localhost:5000/auth/login", {
+        email,
+        password,
+      });
+      if (response.status === 200) {
+        const { user, token } = response.data;
+        dispatch(loginSuccess({ user, token }));
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      console.log("ERROR FROM LOGIN: ", err);
+    }
   };
 
   const inputStyle =
@@ -49,8 +50,8 @@ const LoginPage = () => {
             <input
               placeholder="USERNAME"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className={inputStyle}
             />
             <input
@@ -60,7 +61,7 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               className={inputStyle}
             />
-           
+
             <button
               type="submit"
               className="p-3 bg-[#ff6767] text-white rounded-full shadow-md w-32 mt-4"

@@ -20,10 +20,11 @@ const LoginPage = () => {
         username,
         email,
       });
-      console.log(response.data);
-      navigate("./login");
+      if (response.status === 201) {
+        navigate("/login");
+      }
     } catch (err) {
-      console.log(err);
+      console.log("ERROR FROM SIGNUP: ", err);
     }
   };
 
@@ -46,7 +47,7 @@ const LoginPage = () => {
               onChange={(e) => setUsername(e.target.value)}
               className={inputStyle}
               required
-              minLength={3}
+              minLength={6}
               maxLength={20}
             />
             <input

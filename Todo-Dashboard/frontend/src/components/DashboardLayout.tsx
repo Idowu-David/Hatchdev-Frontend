@@ -12,8 +12,8 @@ const DashboardLayout: React.FC = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(false);
 
   const { tasks } = useAppSelector((state) => state.tasks);
-  const user = useAppSelector((state) => state.auth);
-
+	const user = useAppSelector((state) => state.auth);
+	
   const activeTasks = tasks.filter((task) => task.status !== "completed");
 
   const completedTasks = tasks.filter((task) => task.status === "completed");
