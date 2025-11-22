@@ -4,8 +4,8 @@ import { useAppDispatch } from "../../hooks";
 import { loginSuccess } from "./AuthSlice";
 import { useState } from "react";
 import "../../styles/loginPage.css";
-import axios from "axios";
 import { LoginValidation } from "./Validation";
+import api from "../../api";
 
 const LoginPage = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +25,7 @@ const LoginPage = () => {
     setErrors(validator);
     if (errors.email === "" && errors.password === "") {
       try {
-        const response = await axios.post("http://localhost:5000/auth/login", {
+        const response = await api.post("/auth/login", {
           email,
           password,
         });

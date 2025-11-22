@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { useAppDispatch } from "../../hooks";
 // import { loginSuccess } from "./AuthSlice";
-import axios from "axios";
 import { SignupValidation } from "./Validation";
+import api from "../../api";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const LoginPage = () => {
       errors.username === ""
     ) {
       try {
-        const response = await axios.post("http://localhost:5000/auth/signup", {
+        const response = await api.post("/auth/signup", {
           password,
           username,
           email,
