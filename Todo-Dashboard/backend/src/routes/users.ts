@@ -3,7 +3,7 @@ import express from "express";
 import { body, validationResult } from "express-validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import db from "../db";
+import db from "../../db";
 
 const router = Router();
 const JWT_SECRET = String(process.env.JWT_SECRET);
