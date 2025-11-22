@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import { useAppDispatch } from "../../hooks";
 // import { loginSuccess } from "./AuthSlice";
 import axios from "axios";
-import SignupValidation from "./Validation";
+import { SignupValidation } from "./Validation";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -22,21 +22,24 @@ const LoginPage = () => {
     const validationErrors = SignupValidation({ username, email, password });
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
+    if (
+      errors.email === "" &&
+      errors.password === "" &&
+      errors.username === ""
+    ) {
+      try {
+        const response = await axios.post("http://localhost:5000/auth/signup", {
+          password,
+          username,
+          email,
+        });
 
-    try {
-      const response = await axios.post("http://localhost:5000/auth/signup", {
-        password,
-        username,
-        email,
-      });
-      if (response.status === 201) {
-        navigate("/login");
+        if (response.status === 201) {
+          navigate("/login");
+        }
+      } catch (err) {
+        console.log("ERROR FROM SIGNUP: ", err);
       }
-    } catch (err) {
-      console.log("ERROR FROM SIGNUP: ", err);
     }
   };
 
