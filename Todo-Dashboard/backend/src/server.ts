@@ -23,6 +23,10 @@ app.use(
 
 app.use("/auth", userRoutes);
 
+app.get("/auth", (req, res) => {
+  res.send("Backend is running!");
+});
+
 app.listen(PORT, () => {
-  console.log(`[Server]: Server is running at http://localhost:${PORT}`);
+  console.log(`[Server]: Server is running`);
 });
